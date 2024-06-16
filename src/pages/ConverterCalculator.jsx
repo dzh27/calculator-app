@@ -1,4 +1,4 @@
-import React from 'react'
+import '../styles/_convcalc.css'
 
 function ConverterCalculator() {
 	return (

@@ -9,9 +9,6 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />}></Route>
 				<Route path='/calculator' element={<ConverterCalculator />}></Route>
-				<p className='read-the-docs'>
-					Click on the Vite and React logos to learn more
-				</p>
 			</Routes>
 	)
 }

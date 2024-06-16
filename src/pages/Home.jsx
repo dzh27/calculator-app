@@ -1,11 +1,17 @@
-import React from "react";
+import React from 'react'
+import Header from '../components/Header'
+
+import "../styles/_home.css"
 
 function Home() {
-    return (
-        <div>
-            <h1>Hi</h1>
-        </div>
-    )
+	return (
+		<>
+			<Header />
+			<div>
+				<h1>Welcome!</h1>
+			</div>
+		</>
+	)
 }
 
 export default Home

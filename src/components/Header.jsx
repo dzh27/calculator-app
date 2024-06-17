@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 
-import '../styles/header.css'
+import '../styles/_header.css'
 
-function Header() {
+const Header = () => {
 	return (
-		<div className='header'>
-			<Link to='/calculator'>Калькулятор</Link>
-		</div>
+		<header className='header'>
+			<Link to='/'>Главная</Link>
+			<Link to='/calculator'>Конвертер</Link>
+		</header>
 	)
 }
 

@@ -1,5 +1,7 @@
-const value = {
-	USD: 451,
-	UZS: 0.034,
-	EUR: 401,
+const VALUES = {
+	USD: 453.6,
+	UZS: 0.036,
+	EUR: 486.77,
 }
+
+export default VALUES

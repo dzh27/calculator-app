@@ -2,4 +2,6 @@
 	margin-left: 800px;
 	margin-top: 10%;
 	/* background-color: ; */
+	display: column;
+	padding: 10px;
 }

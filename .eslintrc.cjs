@@ -13,6 +13,9 @@ module.exports = {
 	plugins: ['react-refresh'],
 	rules: {
 		'no-var': 'error',
+		'no-trailing-spaces': 'error',
+		// 'no-tabs': 'warn',
+		'camelcase': 'warn',
 		'react/jsx-no-target-blank': 'off',
 		'react-refresh/only-export-components': [
 			'warn',

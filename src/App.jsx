@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Home from './components/pages/Home'
-import ConverterCalculator from './components/pages/ConverterCalculator'
+import Converter from './components/pages/Converter'
 import Header from './components/Header'
 import './App.css'
 
@@ -10,7 +10,7 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path='/' element={<Home />}></Route>
-				<Route path='/calculator' element={<ConverterCalculator />}></Route>
+				<Route path='/calculator' element={<Converter />}></Route>
 			</Routes>
 		</>
 	)

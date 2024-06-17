@@ -5,8 +5,12 @@ import '../styles/_header.css'
 const Header = () => {
 	return (
 		<header className='header'>
-			<Link to='/'>Главная</Link>
-			<Link to='/calculator'>Конвертер</Link>
+			<Link to='/' className='links'>
+				Главная
+			</Link>
+			<Link to='/calculator' className='links'>
+				Конвертер
+			</Link>
 		</header>
 	)
 }

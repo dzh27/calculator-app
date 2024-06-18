@@ -6,10 +6,10 @@ const currencyOptions = ['USD', 'EUR', 'UZS']
 import '../styles/_checkbox.css'
 
 function Checkboxer({ checkedList, setCheckedList }) {
+	
 	const checkAll = currencyOptions.length === checkedList.length
 
-	const indeterminate =
-		checkedList.length > 0 && checkedList.length < currencyOptions.length
+	const indeterminate = checkedList.length > 0 && checkedList.length < currencyOptions.length
 
 	const onChange = list => {
 		setCheckedList(list)

@@ -1,7 +1,9 @@
 import React from 'react'
 import { InputNumber, Space } from 'antd'
 import { useState } from 'react'
+
 import VALUES from '../../data/data'
+
 import Checkboxer from '../Checkbox'
 
 import '../../styles/_converter.css'
@@ -48,6 +50,7 @@ const Converter = () => {
 	return (
 		<>
 			<Checkboxer checkedList={checkList} setCheckedList={setCheckList} />
+
 			<div className='converter'>
 				<Space direction='vertical'>
 					<InputNumber
@@ -75,6 +78,7 @@ const Converter = () => {
 					/>
 				</Space>
 			</div>
+			<button type='button'>Рандомизировать курс валют</button>
 		</>
 	)
 }

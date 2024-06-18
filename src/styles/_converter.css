@@ -11,3 +11,16 @@
 	position: static;
 	width: 400px;
 }
+
+button {
+	position: static;
+	background-color: white;
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-size: large;
+	margin-top: 30px;
+	margin-left: 41.2%;
+	border-radius: 5px;
+	border-width: 2px;
+	border-color: gray;
+	border-style: solid;
+}

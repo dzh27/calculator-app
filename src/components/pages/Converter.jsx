@@ -2,7 +2,7 @@ import React from 'react'
 import { InputNumber, Space } from 'antd'
 import { useState } from 'react'
 import VALUES from '../../data/data'
-import Checkboxes from '../Checkbox'
+import Checkboxer from '../Checkbox'
 
 import '../../styles/_converter.css'
 
@@ -14,22 +14,32 @@ const Converter = () => {
 		UZS: 0,
 	})
 
+	const [checkList, setCheckList] = useState(['USD', 'EUR', 'UZS'])
+
 	function moneyOnChange(value, currency) {
 		let newCurrencies = { ...money }
 		if (currency === 'KZT') {
-			newCurrencies = {
-				KZT: value,
-				USD: value / VALUES.USD,
-				EUR: value / VALUES.EUR,
-				UZS: value / VALUES.UZS,
+			newCurrencies.KZT = value
+			if (checkList.includes('USD')) {
+				newCurrencies.USD = value / VALUES.USD
+			}
+			if (checkList.includes('EUR')) {
+				newCurrencies.EUR = value / VALUES.EUR
+			}
+			if (checkList.includes('UZS')) {
+				newCurrencies.UZS = value / VALUES.UZS
 			}
 		} else {
 			const kztValue = value * VALUES[currency]
-			newCurrencies = {
-				KZT: kztValue,
-				USD: kztValue / VALUES.USD,
-				EUR: kztValue / VALUES.EUR,
-				UZS: kztValue / VALUES.UZS,
+			newCurrencies.KZT = kztValue
+			if (checkList.includes('USD')) {
+				newCurrencies.USD = kztValue / VALUES.USD
+			}
+			if (checkList.includes('EUR')) {
+				newCurrencies.EUR = kztValue / VALUES.EUR
+			}
+			if (checkList.includes('UZS')) {
+				newCurrencies.UZS = kztValue / VALUES.UZS
 			}
 		}
 		setMoney(newCurrencies)
@@ -37,7 +47,7 @@ const Converter = () => {
 
 	return (
 		<>
-			<Checkboxes />
+			<Checkboxer checkedList={checkList} setCheckedList={setCheckList} />
 			<div className='converter'>
 				<Space direction='vertical'>
 					<InputNumber
@@ -49,16 +59,19 @@ const Converter = () => {
 						addonAfter='USD'
 						value={money.USD}
 						onChange={value => moneyOnChange(value, 'USD')}
+						disabled={!checkList.includes('USD')}
 					/>
 					<InputNumber
 						addonAfter='EUR'
 						value={money.EUR}
 						onChange={value => moneyOnChange(value, 'EUR')}
+						disabled={!checkList.includes('EUR')}
 					/>
 					<InputNumber
 						addonAfter='UZS'
 						value={money.UZS}
 						onChange={value => moneyOnChange(value, 'UZS')}
+						disabled={!checkList.includes('UZS')}
 					/>
 				</Space>
 			</div>

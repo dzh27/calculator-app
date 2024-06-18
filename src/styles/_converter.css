@@ -1,7 +1,6 @@
 .converter {
 	margin-left: 37%;
 	margin-top: 10%;
-	/* background-color: ; */
 	display: column;
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -9,4 +8,6 @@
 	border-radius: 20px;
 	background-color: white;
 	padding-left: 5%;
+	position: static;
+	width: 400px;
 }

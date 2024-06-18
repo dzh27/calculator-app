@@ -1,23 +1,24 @@
 import React from 'react'
-import { useState } from 'react'
 import { Checkbox, Divider } from 'antd'
 const CheckboxGroup = Checkbox.Group
-const plainOptions = ['USD', 'EUR', 'UZS']
-const defaultCheckedList = ['USD', 'EUR', 'UZS']
+const currencyOptions = ['USD', 'EUR', 'UZS']
 
 import '../styles/_checkbox.css'
 
-function Checkboxer() {
-	const [checkedList, setCheckedList] = useState(defaultCheckedList)
-	const checkAll = plainOptions.length === checkedList.length
+function Checkboxer({ checkedList, setCheckedList }) {
+	const checkAll = currencyOptions.length === checkedList.length
+
 	const indeterminate =
-		checkedList.length > 0 && checkedList.length < plainOptions.length
+		checkedList.length > 0 && checkedList.length < currencyOptions.length
+
 	const onChange = list => {
 		setCheckedList(list)
 	}
+
 	const onCheckAllChange = e => {
-		setCheckedList(e.target.checked ? plainOptions : [])
+		setCheckedList(e.target.checked ? currencyOptions : [])
 	}
+
 	return (
 		<>
 			<Checkbox
@@ -31,7 +32,7 @@ function Checkboxer() {
 			<Divider />
 			<CheckboxGroup
 				className='checkboxes'
-				options={plainOptions}
+				options={currencyOptions}
 				value={checkedList}
 				onChange={onChange}
 			/>

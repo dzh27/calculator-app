@@ -1,10 +1,13 @@
+import React from 'react'
 import { useState } from 'react'
 import { Checkbox, Divider } from 'antd'
 const CheckboxGroup = Checkbox.Group
 const plainOptions = ['USD', 'EUR', 'UZS']
 const defaultCheckedList = ['USD', 'EUR', 'UZS']
 
-function checkbox() {
+import '../styles/_checkbox.css'
+
+function Checkboxer() {
 	const [checkedList, setCheckedList] = useState(defaultCheckedList)
 	const checkAll = plainOptions.length === checkedList.length
 	const indeterminate =
@@ -18,6 +21,7 @@ function checkbox() {
 	return (
 		<>
 			<Checkbox
+				className='checkboxes'
 				indeterminate={indeterminate}
 				onChange={onCheckAllChange}
 				checked={checkAll}
@@ -26,6 +30,7 @@ function checkbox() {
 			</Checkbox>
 			<Divider />
 			<CheckboxGroup
+				className='checkboxes'
 				options={plainOptions}
 				value={checkedList}
 				onChange={onChange}
@@ -34,4 +39,4 @@ function checkbox() {
 	)
 }
 
-export default checkbox
+export default Checkboxer

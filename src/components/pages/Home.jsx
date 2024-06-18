@@ -1,3 +1,5 @@
+import React from 'react'
+
 import '../../styles/_home.css'
 
 const Home = () => {

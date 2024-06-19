@@ -1,12 +1,12 @@
 import React from 'react'
-import { InputNumber, Space } from 'antd'
+import { Button, InputNumber, Space } from 'antd'
 import { useState } from 'react'
 
-import VALUES from '../../data/data'
+import VALUES from '../../../data/Data'
 
-import Checkboxer from '../Checkbox'
+import Checkboxer from '../../Checkbox/Checkbox'
 
-import '../../styles/_converter.css'
+import './_converter.css'
 
 const Converter = () => {
 	const [money, setMoney] = useState({
@@ -23,62 +23,65 @@ const Converter = () => {
 		if (currency === 'KZT') {
 			newCurrencies.KZT = value
 			if (checkList.includes('USD')) {
-				newCurrencies.USD = value / VALUES.USD
+				newCurrencies.USD = (value / VALUES.USD).toFixed(2)
 			}
 			if (checkList.includes('EUR')) {
-				newCurrencies.EUR = value / VALUES.EUR
+				newCurrencies.EUR = (value / VALUES.EUR).toFixed(2)
 			}
 			if (checkList.includes('UZS')) {
-				newCurrencies.UZS = value / VALUES.UZS
+				newCurrencies.UZS = (value / VALUES.UZS).toFixed(3)
 			}
 		} else {
 			const kztValue = value * VALUES[currency]
 			newCurrencies.KZT = kztValue
 			if (checkList.includes('USD')) {
-				newCurrencies.USD = kztValue / VALUES.USD
+				newCurrencies.USD = (kztValue / VALUES.USD).toFixed(2)
 			}
 			if (checkList.includes('EUR')) {
-				newCurrencies.EUR = kztValue / VALUES.EUR
+				newCurrencies.EUR = (kztValue / VALUES.EUR).toFixed(2)
 			}
 			if (checkList.includes('UZS')) {
-				newCurrencies.UZS = kztValue / VALUES.UZS
+				newCurrencies.UZS = (kztValue / VALUES.UZS).toFixed(3)
 			}
 		}
 		setMoney(newCurrencies)
 	}
-
 	return (
 		<>
 			<Checkboxer checkedList={checkList} setCheckedList={setCheckList} />
-
 			<div className='converter'>
 				<Space direction='vertical'>
 					<InputNumber
 						addonAfter='KZT'
-						value={money.KZT}
+						value={parseFloat(money.KZT).toFixed(2)}
 						onChange={value => moneyOnChange(value, 'KZT')}
 					/>
 					<InputNumber
 						addonAfter='USD'
-						value={money.USD}
+						value={parseFloat(money.USD).toFixed(2)}
 						onChange={value => moneyOnChange(value, 'USD')}
 						disabled={!checkList.includes('USD')}
 					/>
 					<InputNumber
 						addonAfter='EUR'
-						value={money.EUR}
+						value={parseFloat(money.EUR).toFixed(2)}
 						onChange={value => moneyOnChange(value, 'EUR')}
 						disabled={!checkList.includes('EUR')}
 					/>
 					<InputNumber
 						addonAfter='UZS'
-						value={money.UZS}
+						value={parseFloat(money.UZS).toFixed(3)}
 						onChange={value => moneyOnChange(value, 'UZS')}
 						disabled={!checkList.includes('UZS')}
 					/>
 				</Space>
 			</div>
-			<button type='button'>Рандомизировать курс валют</button>
+			{/* <randomizeButton>Рандомизировать валюты</randomizeButton>
+			<consoleLogButton>Вывести ConsoleLog валют</consoleLogButton> */}
+			<Button className='randomizer'>Рандомизировать валюты</Button>
+			<Button type='dashed' className='logButton'>
+				Вывести ConsoleLog валют
+			</Button>
 		</>
 	)
 }

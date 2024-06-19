@@ -1,19 +1,43 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from './components/pages/Home'
-import Converter from './components/pages/Converter'
-import Header from './components/Header'
+import { Layout } from 'antd'
+import { Content, Header, Footer } from 'antd/es/layout/layout'
+import Home from './components/pages/Home/Home'
+import Converter from './components/pages/Converter/Converter'
+import MyHeader from './components/Header/Header'
+
 import './App.css'
+
+// ;<Layout style={layoutStyle}>
+// 	<Header style={headerStyle}>Header</Header>
+// 	<Content style={contentStyle}>Content</Content>
+// 	<Footer style={footerStyle}>Footer</Footer>
+// </Layout>
+
+// {
+// 	;<>
+// 		 <Header />
+// 		<Routes>
+// 			<Route path='/' element={<Home />}></Route>
+// 			<Route path='/calculator' element={<Converter />}></Route>
+// 		</Routes>{' '}
+
+// 	</>
+// }
 
 function App() {
 	return (
-		<>
-			<Header />
-			<Routes>
-				<Route path='/' element={<Home />}></Route>
-				<Route path='/calculator' element={<Converter />}></Route>
-			</Routes>
-		</>
+		<Layout>
+			<Header>
+				<MyHeader />
+			</Header>
+			<Content>
+				<Routes>
+					<Route path='/' element={<Home />}></Route>
+					<Route path='/calculator' element={<Converter />}></Route>
+				</Routes>
+			</Content>
+		</Layout>
 	)
 }
 

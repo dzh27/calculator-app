@@ -1,9 +1,9 @@
 import React from 'react'
-import { Checkbox, Divider } from 'antd'
+import { Checkbox } from 'antd'
 const CheckboxGroup = Checkbox.Group
 const currencyOptions = ['USD', 'EUR', 'UZS']
 
-import '../styles/_checkbox.css'
+import './_checkbox.css'
 
 function Checkboxer({ checkedList, setCheckedList }) {
 	
@@ -22,14 +22,13 @@ function Checkboxer({ checkedList, setCheckedList }) {
 	return (
 		<>
 			<Checkbox
-				className='checkboxes'
+				className='checker'
 				indeterminate={indeterminate}
 				onChange={onCheckAllChange}
 				checked={checkAll}
 			>
 				Выбрать все
 			</Checkbox>
-			<Divider />
 			<CheckboxGroup
 				className='checkboxes'
 				options={currencyOptions}

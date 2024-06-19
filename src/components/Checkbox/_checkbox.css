@@ -1,0 +1,32 @@
+.checker {
+	background-color: white;
+	justify-content: center;
+	border-radius: 15px;
+	padding: 5px;
+	width: 8vw;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.checkboxes {
+	background-color: white;
+	border-radius: 15px;
+	padding: 5px;
+	width: 12vw;
+	align-items: center;
+	display: flex;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: auto;
+}
+/* _checkbox.css */
+/* .checkboxes {
+	margin: 10px 0;
+} */

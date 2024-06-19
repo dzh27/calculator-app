@@ -1,0 +1,37 @@
+.converter {
+	justify-content: center;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 20px;
+	display: flex;
+}
+
+.randomizer {
+	display: flex;
+	margin: auto;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.logButton {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	align-items: center;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* button {
+	background-color: white;
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-size: large;
+	border-radius: 15px;
+} */

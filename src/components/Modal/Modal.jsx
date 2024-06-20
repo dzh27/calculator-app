@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Modal } from 'antd'
 
 import './_modal.css'
@@ -17,6 +17,17 @@ function ModalComponent() {
 	const handleCancel = () => {
 		setIsModalOpen(false)
 	}
+
+	useEffect(() => {
+		// Начало отсчёта после открытия
+		if (isModalOpen) {
+			const timer = setTimeout(() => {
+				setIsModalOpen(false)
+			}, 5000)
+			// Очищаем таймер
+			return () => clearTimeout(timer)
+		}
+	}, [isModalOpen])
 
 	return (
 		<>

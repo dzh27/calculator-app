@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, InputNumber, Space } from 'antd'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import VALUES from '../../../data/Data'
 
@@ -19,30 +19,66 @@ const Converter = () => {
 	})
 
 	const [valuesCopies, setValues] = useState(valuesCopy)
+
 	const [checkList, setCheckList] = useState(['USD', 'EUR', 'UZS'])
 
-	function moneyOnChange(value, currency) {
+	useEffect(() => {
 		let newCurrencies = { ...money }
+		
+		const kztMoneyValue = money.KZT
+
+		if (checkList.includes('USD')) {
+			newCurrencies.USD = (kztMoneyValue / valuesCopies.USD).toFixed(2)
+		} else {
+			newCurrencies.USD = 0
+		}
+
+		if (checkList.includes('EUR')) {
+			newCurrencies.EUR = (kztMoneyValue / valuesCopies.EUR).toFixed(2)
+		} else {
+			newCurrencies.EUR = 0
+		}
+
+		if (checkList.includes('UZS')) {
+			newCurrencies.UZS = (kztMoneyValue / valuesCopies.UZS).toFixed(3)
+		} else {
+			newCurrencies.UZS = 0
+		}
+		
+		setMoney(newCurrencies)
+	}, [checkList, valuesCopies, money.KZT])
+
+	function moneyOnChange(value, currency) {
+		
+		let newCurrencies = { ...money }
+		
 		if (currency === 'KZT') {
 			newCurrencies.KZT = value
 			if (checkList.includes('USD')) {
 				newCurrencies.USD = (value / valuesCopies.USD).toFixed(2)
 			}
+			
 			if (checkList.includes('EUR')) {
 				newCurrencies.EUR = (value / valuesCopies.EUR).toFixed(2)
 			}
+			
 			if (checkList.includes('UZS')) {
 				newCurrencies.UZS = (value / valuesCopies.UZS).toFixed(3)
 			}
 		} else {
+			
 			const kztValue = value * valuesCopies[currency]
+			
 			newCurrencies.KZT = kztValue
+			
 			if (checkList.includes('USD')) {
 				newCurrencies.USD = (kztValue / valuesCopies.USD).toFixed(2)
 			}
+			
 			if (checkList.includes('EUR')) {
 				newCurrencies.EUR = (kztValue / valuesCopies.EUR).toFixed(2)
 			}
+			
 			if (checkList.includes('UZS')) {
 				newCurrencies.UZS = (kztValue / valuesCopies.UZS).toFixed(3)
 			}
@@ -100,10 +136,10 @@ const Converter = () => {
 					/>
 				</Space>
 			</div>
-			<Button className='randomizer' onClick={randomizeCurrencies}>
+			<Button onClick={randomizeCurrencies}>
 				Рандомизировать валюты
 			</Button>
-			<Button type='dashed' className='logButton' onClick={logCurrencies}>
+			<Button type='dashed' onClick={logCurrencies}>
 				Вывести ConsoleLog валют
 			</Button>
 		</>

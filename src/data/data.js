@@ -4,4 +4,4 @@ const VALUES = {
 	EUR: 486.77,
 }
 
-export default VALUES
+export default VALUES 

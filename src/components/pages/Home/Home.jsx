@@ -1,7 +1,9 @@
 import React from 'react'
 
-import './_home.css'
 import ModalComponent from '../../Modal/Modal'
+
+import './_home.css'
+
 
 const Home = () => {
 	return (

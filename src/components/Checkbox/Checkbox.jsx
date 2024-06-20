@@ -1,9 +1,13 @@
 import React from 'react'
 import { Checkbox } from 'antd'
-const CheckboxGroup = Checkbox.Group
-const currencyOptions = ['USD', 'EUR', 'UZS']
 
 import './_checkbox.css'
+
+const CheckboxGroup = Checkbox.Group
+
+const currencyOptions = ['USD', 'EUR', 'UZS']
+
+
 
 function Checkboxer({ checkedList, setCheckedList }) {
 	

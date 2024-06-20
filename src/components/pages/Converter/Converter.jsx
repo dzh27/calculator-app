@@ -47,7 +47,21 @@ const Converter = () => {
 		setMoney(newCurrencies)
 	}
 
-	function logCurrencies() {
+	const randomizeCurrencies = () => {
+		let moneyCurrencies = { ...money }
+		if (checkList.includes('USD')) {
+			moneyCurrencies.USD = (Math.random() * (500 - 400) + 400).toFixed(2)
+		}
+		if (checkList.includes('EUR')) {
+			moneyCurrencies.EUR = (Math.random() * (500 - 400) + 400).toFixed(2)
+		}
+		if (checkList.includes('UZS')) {
+			moneyCurrencies.UZS = (Math.random() * (2 - 0.001) + 0.001).toFixed(3)
+		}
+		setMoney(moneyCurrencies)
+	}
+
+	const logCurrencies = () => {
 		const logData = {
 			KZT: money.KZT,
 			selectedCurrencies: checkList.map(curr => ({
@@ -88,7 +102,9 @@ const Converter = () => {
 					/>
 				</Space>
 			</div>
-			<Button className='randomizer'>Рандомизировать валюты</Button>
+			<Button className='randomizer' onClick={randomizeCurrencies}>
+				Рандомизировать валюты
+			</Button>
 			<Button type='dashed' className='logButton' onClick={logCurrencies}>
 				Вывести ConsoleLog валют
 			</Button>

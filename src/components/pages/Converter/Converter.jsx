@@ -8,6 +8,8 @@ import Checkboxer from '../../Checkbox/Checkbox'
 
 import './_converter.css'
 
+const valuesCopy = { ...VALUES }
+
 const Converter = () => {
 	const [money, setMoney] = useState({
 		KZT: 0,
@@ -16,6 +18,7 @@ const Converter = () => {
 		UZS: 0,
 	})
 
+	const [valuesCopies, setValues] = useState(valuesCopy)
 	const [checkList, setCheckList] = useState(['USD', 'EUR', 'UZS'])
 
 	function moneyOnChange(value, currency) {
@@ -23,42 +26,37 @@ const Converter = () => {
 		if (currency === 'KZT') {
 			newCurrencies.KZT = value
 			if (checkList.includes('USD')) {
-				newCurrencies.USD = (value / VALUES.USD).toFixed(2)
+				newCurrencies.USD = (value / valuesCopies.USD).toFixed(2)
 			}
 			if (checkList.includes('EUR')) {
-				newCurrencies.EUR = (value / VALUES.EUR).toFixed(2)
+				newCurrencies.EUR = (value / valuesCopies.EUR).toFixed(2)
 			}
 			if (checkList.includes('UZS')) {
-				newCurrencies.UZS = (value / VALUES.UZS).toFixed(3)
+				newCurrencies.UZS = (value / valuesCopies.UZS).toFixed(3)
 			}
 		} else {
-			const kztValue = value * VALUES[currency]
+			const kztValue = value * valuesCopies[currency]
 			newCurrencies.KZT = kztValue
 			if (checkList.includes('USD')) {
-				newCurrencies.USD = (kztValue / VALUES.USD).toFixed(2)
+				newCurrencies.USD = (kztValue / valuesCopies.USD).toFixed(2)
 			}
 			if (checkList.includes('EUR')) {
-				newCurrencies.EUR = (kztValue / VALUES.EUR).toFixed(2)
+				newCurrencies.EUR = (kztValue / valuesCopies.EUR).toFixed(2)
 			}
 			if (checkList.includes('UZS')) {
-				newCurrencies.UZS = (kztValue / VALUES.UZS).toFixed(3)
+				newCurrencies.UZS = (kztValue / valuesCopies.UZS).toFixed(3)
 			}
 		}
 		setMoney(newCurrencies)
 	}
 
 	const randomizeCurrencies = () => {
-		let moneyCurrencies = { ...money }
-		if (checkList.includes('USD')) {
-			moneyCurrencies.USD = (Math.random() * (500 - 400) + 400).toFixed(2)
+		const newValues = {
+			USD: (Math.random() * (500 - 400) + 400).toFixed(2),
+			EUR: (Math.random() * (500 - 400) + 400).toFixed(2),
+			UZS: (Math.random() * (2 - 0.001) + 0.001).toFixed(3),
 		}
-		if (checkList.includes('EUR')) {
-			moneyCurrencies.EUR = (Math.random() * (500 - 400) + 400).toFixed(2)
-		}
-		if (checkList.includes('UZS')) {
-			moneyCurrencies.UZS = (Math.random() * (2 - 0.001) + 0.001).toFixed(3)
-		}
-		setMoney(moneyCurrencies)
+		setValues(newValues)
 	}
 
 	const logCurrencies = () => {

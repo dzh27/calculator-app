@@ -4,18 +4,20 @@ import { Button, Modal } from 'antd'
 import './_modal.css'
 
 function ModalComponent() {
-	
-    const [isModalOpen, setIsModalOpen] = useState(true)
-	
-    const showModal = () => {
+	const [isModalOpen, setIsModalOpen] = useState(true)
+
+	const showModal = () => {
 		setIsModalOpen(true)
 	}
+	
 	const handleOk = () => {
 		setIsModalOpen(false)
 	}
+	
 	const handleCancel = () => {
 		setIsModalOpen(false)
 	}
+
 	return (
 		<>
 			<Button className='modal' type='primary' onClick={showModal}>
@@ -27,8 +29,8 @@ function ModalComponent() {
 				onOk={handleOk}
 				onCancel={handleCancel}
 			>
-				<p>HI</p>
-				<p>Hype</p>
+				<p>Hi</p>
+				<p>Hello</p>
 				<p>I just want to rock!</p>
 			</Modal>
 		</>

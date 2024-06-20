@@ -46,6 +46,15 @@ const Converter = () => {
 		}
 		setMoney(newCurrencies)
 	}
+
+	function logCurrencies() {
+		const selectedCurrencies = checkList.map(currency => ({
+			currency,
+			value: money[currency],
+		}))
+		console.log('Выбранные страны и Количество денег: ', selectedCurrencies)
+	}
+
 	return (
 		<>
 			<Checkboxer checkedList={checkList} setCheckedList={setCheckList} />
@@ -79,7 +88,7 @@ const Converter = () => {
 			{/* <randomizeButton>Рандомизировать валюты</randomizeButton>
 			<consoleLogButton>Вывести ConsoleLog валют</consoleLogButton> */}
 			<Button className='randomizer'>Рандомизировать валюты</Button>
-			<Button type='dashed' className='logButton'>
+			<Button type='dashed' className='logButton' onClick={logCurrencies}>
 				Вывести ConsoleLog валют
 			</Button>
 		</>

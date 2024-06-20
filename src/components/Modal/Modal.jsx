@@ -24,7 +24,7 @@ function ModalComponent() {
 			const timer = setTimeout(() => {
 				setIsModalOpen(false)
 			}, 5000)
-			// Очищаем таймер
+			// Очищаем таймер 
 			return () => clearTimeout(timer)
 		}
 	}, [isModalOpen])
